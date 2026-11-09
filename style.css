@@ -82,9 +82,32 @@ border: black 50px ;
   margin: auto;
 }
 
+.imagen div {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.imagen img {
+  width: 350px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.imagen img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
 .imagen p {
   font-size: 30px;
   text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 
