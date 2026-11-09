@@ -110,6 +110,12 @@ border: black 50px ;
   margin-bottom: 20px;
 }
 
+.unknow p{
+font-size: 30px;
+text-align: left;
+width: 80%;
+margin-bottom: 20%;
+}
 
 @media(max-width:768px){
 
