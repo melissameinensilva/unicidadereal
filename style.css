@@ -114,7 +114,55 @@ border: black 50px ;
 font-size: 30px;
 text-align: left;
 width: 80%;
-margin-bottom: 20%;
+margin: 2%;
+}
+
+
+.carrossel {
+  text-align: center;
+  padding: 30px;
+}
+
+.carrossel img {
+  width: 80%;
+  max-width: 800px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid black;
+}
+
+.carrossel h2 {
+  font-size: 35px;
+  margin: 20px;
+}
+
+.carrossel p {
+  font-size: 22px;
+  margin: 15px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px;
+}
+
+.botoes button {
+  padding: 15px 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.botoes button:hover {
+  background-color: blue;
+  transform: scale(1.05);
 }
 
 @media(max-width:768px){
