@@ -1,29 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f0e7">
 
     <title>Hospedagens de Luxo</title>
 
     <style>
+        :root {
+            color-scheme: light;
+            --page: #f3f0e7;
+            --card: #f7f4ec;
+            --ink: #304238;
+            --muted: #737e74;
+            --accent: #708e78;
+            --accent-hover: #607d68;
+            --soft: #aec4ae;
+            --line: #d7dfd2;
+            --room-image: url("quarto-luxo.png");
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f4eb;
-            color: #333;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            padding: 24px 18px;
+            background-color: var(--page);
+            background-image:
+                linear-gradient(120deg, rgb(12 20 36 / 38%), rgb(12 20 36 / 52%)),
+                var(--room-image);
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .pagina {
+            display: grid;
+            gap: 22px;
+            width: min(100%, 1040px);
+            margin: 0 auto;
+        }
+
+        
+        header,
+        .banner,
+        .quartos,
+        .incentivo,
+        footer {
+            border: 1px solid rgb(255 255 255 / 78%);
+            border-radius: 15px;
+            background: rgb(247 244 236 / 96%);
+            box-shadow: 0 24px 65px rgb(27 39 31 / 30%);
+        }
+
+
         header {
-            background: #000c08;
-            color: rgb(228, 156, 0);
-            padding: 25px 8%;
+            padding: 20px clamp(22px, 5vw, 36px);
         }
 
         .topo {
@@ -31,137 +75,179 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 18px;
         }
 
         header h1 {
-            color: #cc8c02;
-            font-size: 28px;
+            color: var(--ink);
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         nav {
             display: flex;
-            gap: 25px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         nav a {
-            color: #cc8c02;
+            padding: 9px 16px;
+            border-radius: 7px;
+            color: #46564a;
+            font-size: 13px;
+            font-weight: 600;
             text-decoration: none;
-            transition: 0.3s;
+            transition: background 0.2s, color 0.2s;
         }
 
         nav a:hover {
-            color: #ffffff;
+            background: var(--soft);
+            color: #263b2d;
         }
 
+        nav a:focus-visible {
+            outline: 3px solid #91aa96;
+            outline-offset: 2px;
+        }
+
+        /* Banner */
         .banner {
             text-align: center;
-            padding: 75px 20px;
-            background: #ffffff;
+            padding: clamp(40px, 8vw, 72px) clamp(22px, 6vw, 36px);
         }
 
         .banner h2 {
-            color: #172c25;
-            font-size: 34px;
-            margin-bottom: 20px;
+            color: var(--ink);
+            font-size: clamp(26px, 4.5vw, 36px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
         }
 
         .banner p {
-            max-width: 650px;
+            max-width: 620px;
             margin: auto;
-            line-height: 1.8;
-            font-size: 17px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
         }
 
+        /* Hospedagens */
         .quartos {
-            padding: 55px 8%;
+            padding: clamp(32px, 6vw, 52px) clamp(22px, 6vw, 36px);
             text-align: center;
-            background: white;
         }
 
         .quartos h2 {
-            color: #9b773c;
-            margin-bottom: 15px;
+            color: var(--ink);
             font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
         .descricao {
-            margin-bottom: 35px;
-            color: #666;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
         }
 
         .fotos {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            max-width: 950px;
+            gap: 22px;
+            max-width: 900px;
             margin: auto;
         }
 
         .card {
-            background: #f8f4eb;
+            border: 1px solid var(--line);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px #0002;
-            transition: 0.3s;
+            background: #fffefa;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgb(112 142 120 / 20%);
         }
 
         .card img {
+            display: block;
             width: 100%;
             height: 260px;
             object-fit: cover;
         }
 
         .card h3 {
-            padding: 15px;
-            color: #172c25;
+            padding: 14px 16px;
+            border-top: 1px solid var(--line);
+            color: #46564a;
+            font-size: 15px;
+            font-weight: 700;
+            text-align: left;
         }
 
+
         .incentivo {
-            background: #172c25;
-            color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: clamp(36px, 7vw, 60px) clamp(22px, 6vw, 36px);
         }
 
         .incentivo h2 {
-            color: #d6b56d;
-            margin-bottom: 20px;
+            color: var(--ink);
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
         }
 
         .incentivo p {
-            max-width: 700px;
+            max-width: 680px;
             margin: auto;
+            color: var(--muted);
+            font-size: 14px;
             line-height: 1.8;
         }
 
+
         footer {
-            background: #101e19;
-            color: white;
+            padding: 20px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
             text-align: center;
-            padding: 25px;
-            font-size: 14px;
         }
 
         @media (max-width: 600px) {
+            body {
+                padding: 18px 14px;
+            }
+
             .topo {
                 flex-direction: column;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            .banner h2 {
-                font-size: 26px;
+                align-items: flex-start;
             }
 
             .fotos {
                 grid-template-columns: 1fr;
+            }
+
+            .card img {
+                height: 220px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
             }
         }
     </style>
@@ -169,79 +255,83 @@
 
 <body>
 
-<header>
-    <div class="topo">
-        <h1>Quarto para ricos como Mr Beast</h1>
+<div class="pagina">
 
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#quartos">Hospedagens </a>
-            <a href="#inspiracao">Inspiração</a>
-        </nav>
-    </div>
-</header>
+    <header>
+        <div class="topo">
+            <h1>Quarto para ricos como Mr Beast</h1>
 
-<section class="banner" id="inicio">
-    <h2>Experiências que vão além do conforto</h2>
-
-    <p>
-        Conheça ambientes sofisticados, projetados para oferecer
-        conforto, elegância e momentos inesquecíveis.
-        Descubra espaços onde cada detalhe faz a diferença.
-    </p>
-</section>
-
-<section class="quartos" id="quartos">
-
-    <h2>Nossas Hospedagens</h2>
-
-    <p class="descricao">
-        Conheça alguns ambientes que representam o melhor do luxo e da sofisticação.
-    </p>
-
-    <div class="fotos">
-
-        <div class="card">
-            <img src="quarto 1.jpg" alt="Quarto de luxo">
-            <h3>Suíte Elegance</h3>
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#quartos">Hospedagens </a>
+                <a href="#inspiracao">Inspiração</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="card">
-            <img src="quarto 2.jpg" alt="Quarto sofisticado">
-            <h3>Suíte Premium</h3>
+    <section class="banner" id="inicio">
+        <h2>Experiências que vão além do conforto</h2>
+
+        <p>
+            Conheça ambientes sofisticados, projetados para oferecer
+            conforto, elegância e momentos inesquecíveis.
+            Descubra espaços onde cada detalhe faz a diferença.
+        </p>
+    </section>
+
+    <section class="quartos" id="quartos">
+
+        <h2>Nossas Hospedagens</h2>
+
+        <p class="descricao">
+            Conheça alguns ambientes que representam o melhor do luxo e da sofisticação.
+        </p>
+
+        <div class="fotos">
+
+            <div class="card">
+                <img src="quarto 1.jpg" alt="Quarto de luxo">
+                <h3>Suíte Elegance</h3>
+            </div>
+
+            <div class="card">
+                <img src="quarto 2.jpg" alt="Quarto sofisticado">
+                <h3>Suíte Premium</h3>
+            </div>
+
+            <div class="card">
+                <img src="quarto 3.jpg" alt="Quarto moderno">
+                <h3>Suíte Imperial</h3>
+            </div>
+
+            <div class="card">
+                <img src="quarto 4.jpg" alt="Quarto confortável">
+                <h3>Suíte Exclusive</h3>
+            </div>
+
         </div>
+    </section>
 
-        <div class="card">
-            <img src="quarto 3.jpg" alt="Quarto moderno">
-            <h3>Suíte Imperial</h3>
-        </div>
+    <section class="incentivo" id="inspiracao">
 
-        <div class="card">
-            <img src="quarto 4.jpg" alt="Quarto confortável">
-            <h3>Suíte Exclusive</h3>
-        </div>
+        <h2>O futuro começa com uma ideia</h2>
 
-    </div>
-</section>
+        <p>
+            Este projeto demonstra como a criatividade e a tecnologia
+            podem transformar ideias em realidade. Aprender a criar
+            sites é um primeiro passo para descobrir novas oportunidades.
+            Nunca tenha medo de começar, experimentar e aprender.
+            Grandes projetos começam com pequenos passos!
+        </p>
 
-<section class="incentivo" id="inspiracao">
+    </section>
 
-    <h2>O futuro começa com uma ideia</h2>
+    <footer>
+        <p>Luxury Stay | Projeto desenvolvido com criatividade e tecnologia.</p>
+        <p>© 2026 - Todos os direitos reservados.</p>
+    </footer>
 
-    <p>
-        Este projeto demonstra como a criatividade e a tecnologia
-        podem transformar ideias em realidade. Aprender a criar
-        sites é um primeiro passo para descobrir novas oportunidades.
-        Nunca tenha medo de começar, experimentar e aprender.
-        Grandes projetos começam com pequenos passos!
-    </p>
-
-</section>
-
-<footer>
-    <p>Luxury Stay | Projeto desenvolvido com criatividade e tecnologia.</p>
-    <p>© 2026 - Todos os direitos reservados.</p>
-</footer>
+</div>
 
 </body>
 </html>
