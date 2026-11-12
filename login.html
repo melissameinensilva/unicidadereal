@@ -1,16 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>oi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f0e7">
+    <title>Entrar | Casa Serena</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --page: #f3f0e7;
+            --card: #f7f4ec;
+            --ink: #304238;
+            --muted: #737e74;
+            --accent: #708e78;
+            --accent-hover: #607d68;
+            --line: #d7dfd2;
+            --room-image: url("quarto-luxo.png");
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            min-width: 320px;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px 18px;
+            place-items: center;
+            background-color: var(--page);
+            background-image:
+                linear-gradient(120deg, rgb(12 20 36 / 38%), rgb(12 20 36 / 52%)),
+                var(--room-image);
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .container {
+            width: min(100%, 380px);
+            padding: clamp(26px, 6vw, 36px) clamp(22px, 6vw, 30px);
+            border: 1px solid rgb(255 255 255 / 78%);
+            border-radius: 15px;
+            background: rgb(247 244 236 / 96%);
+            box-shadow: 0 24px 65px rgb(27 39 31 / 30%);
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .intro {
+            margin: 9px 0 25px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        form {
+            display: grid;
+            gap: 17px;
+        }
+
+        .field {
+            display: grid;
+            gap: 8px;
+        }
+
+        label {
+            color: #46564a;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            min-height: 46px;
+            padding: 0 12px;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            outline: none;
+            background: #fffefa;
+            color: var(--ink);
+            font: inherit;
+            font-size: 13px;
+        }
+
+        input::placeholder {
+            color: #89938a;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgb(112 142 120 / 20%);
+        }
+
+        .submit-link {
+            display: grid;
+            min-height: 46px;
+            margin-top: 1px;
+            place-items: center;
+            border-radius: 7px;
+            background: #aec4ae;
+            color: #263b2d;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .submit-link:hover {
+            background: var(--accent);
+            color: #fffefa;
+        }
+
+        .submit-link:focus-visible,
+        .signup-link:focus-visible {
+            outline: 3px solid #91aa96;
+            outline-offset: 3px;
+        }
+
+        .signup {
+            margin: 20px 0 0;
+            padding-top: 17px;
+            border-top: 1px solid #dce1d7;
+            color: var(--muted);
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .signup-link {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .signup-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 18px 14px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <h1> Bem-vindo ao hotel guloso 0.2</h1>
-    <p>why so serious?</p>
+    <main class="container">
+        <p class="eyebrow">Login</p>
+        <h1>Entrar na conta</h1>
+        <p class="intro">Acesse sua conta para planejar suas próximas estadias.</p>
 
+        <form action="login" method="post">
+            <div class="field">
+                <label for="email">Seu e-mail</label>
+                <input type="email" id="email" name="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+            </div>
+            <div class="field">
+                <label for="senha">Sua senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+            </div>
+            <a class="submit-link" href="menu.html">Entrar</a>
+        </form>
 
+        <p class="signup">Ainda não tem uma conta? <a class="signup-link" href="cadastro.html">Cadastre-se</a></p>
+    </main>
 </body>
 </html>
